@@ -18,7 +18,7 @@ questions = [
 st.sidebar.title("Multiple Choice Game")
 
 # Loop through the questions
-for question in questions:
+for i, question in enumerate(questions):
     # Display the question
     st.header(question["question"])
 
@@ -26,7 +26,7 @@ for question in questions:
     choice = st.radio("Select an answer:", question["choices"])
 
     # Create a submit button
-    if st.button("Submit"):
+    if st.button("Submit", key=f"submit-{i}"):
         # Check the answer
         if choice == question["answer"]:
             st.write("Correct!")
